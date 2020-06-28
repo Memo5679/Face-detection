@@ -1,8 +1,8 @@
 import cv2
 
-faceCascade = cv2.CascadeClassifier("/Users/sajaalqahtani/PycharmProjects/Facedetection/haarcascade_frontalface_default.xml")
+faceCascade = cv2.CascadeClassifier("/Users/Memo5679/PycharmProjects/Facedetection/haarcascade_frontalface_default.xml")
 
-img = cv2.imread("/Users/sajaalqahtani/Desktop/image.jpg")
+img = cv2.imread("/Users/Memo5679/Desktop/brac_obama.jpg")
 imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
 faces = faceCascade.detectMultiScale(imgGray,1.1,4)
