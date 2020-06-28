@@ -1,14 +1,37 @@
+# Import OpenCV library
 import cv2
 
-faceCascade = cv2.CascadeClassifier("/Users/Memo5679/PycharmProjects/Facedetection/haarcascade_frontalface_default.xml")
+# Load a cascade file for detecting faces
+faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml");
 
-img = cv2.imread("/Users/Memo5679/Desktop/brac_obama.jpg")
-imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+# Load image
+image = cv2.imread("sasha-malia-obama-thanksgiving-pic-shutterstock-ftr-1-1.jpg")
 
-faces = faceCascade.detectMultiScale(imgGray,1.1,4)
+# Convert into grayscale
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+# Look for faces in the image using the loaded cascade file
+faces = faceCascade.detectMultiScale(gray, 1.2, 5)
 for (x,y,w,h) in faces:
-    cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
+        # Create rectangle around faces
+    cv2.rectangle(image,(x,y),(x+w,y+h),(255,255,0),2)
 
+# Create the resizeable window
+cv2.namedWindow('Obama', cv2.WINDOW_NORMAL)
 
-cv2.imshow("Result", img)
-cv2.waitKey(0)
+# Display the image
+cv2.imshow('Obama', image)
+
+# Wait until we get a key
+k=cv2.waitKey(0)
+
+# If pressed key is 's'
+if k == ord('s'):
+    # Save the image
+    cv2.imwrite('convertedimage.jpg', image)
+    # Destroy all windows
+    cv2.destroyAllWindows()
+# If pressed key is ESC
+elif k == 27:
+    # Destroy all windows
+    cv2.destroyAllWindows()
