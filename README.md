@@ -1,3 +1,3 @@
 # Face-detection
-OpenCV Python: a Face Detection using Haar Cascade Classifiers
-{Running code the face detection}
+OpenCV Python: fter running the code, rectangles will appear around all detected faces.
+
